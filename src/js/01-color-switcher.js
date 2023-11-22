@@ -14,7 +14,7 @@ const refs = {
 }
 
 refs.startButton.addEventListener('click', () => {
-    timerId = setInterval(() => {
+    const timerId = setInterval(() => {
     refs.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
     refs.startButton.disabled = true;
