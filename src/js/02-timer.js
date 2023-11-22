@@ -33,10 +33,10 @@ const options = {
                     const timer = convertMs(
                       selectedDates[0] - new Date()
                     );
-                refs.day.textContent = `${timer.days}`;
-                refs.hours.textContent = `${timer.hours}`;
-                refs.minutes.textContent = `${timer.minutes}`;
-                    refs.seconds.textContent = `${timer.seconds}`;
+                refs.day.textContent = addLeadingZero(timer.days);
+                refs.hours.textContent = addLeadingZero(timer.hours);
+                refs.minutes.textContent = addLeadingZero(timer.minutes);
+                    refs.seconds.textContent = addLeadingZero(timer.seconds);
                     if (selectedDates[0] - new Date() < 1000) {
                         clearInterval(timerId);
                         refs.startButton.disabled = false;
@@ -78,3 +78,6 @@ function convertMs(ms) {
 // console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 // console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
+function addLeadingZero(value) {
+    return value.toString().padStart(2, '0');
+}
