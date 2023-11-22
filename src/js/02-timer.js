@@ -7,12 +7,13 @@ import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-aio-3.2.6.min.js';
 
 const refs = {
-    startButton: document.querySelector('button'),
-    day: document.querySelector('span[data-days]'),
-    hours: document.querySelector('span[data-hours]'),
-    minutes: document.querySelector('span[data-minutes]'),
-    seconds: document.querySelector('span[data-seconds]')
-}
+  startButton: document.querySelector('button'),
+  day: document.querySelector('span[data-days]'),
+  hours: document.querySelector('span[data-hours]'),
+  minutes: document.querySelector('span[data-minutes]'),
+  seconds: document.querySelector('span[data-seconds]'),
+  input: document.querySelector('#datetime-picker'),
+};
 refs.startButton.disabled = true;
 
 const options = {
@@ -27,6 +28,7 @@ const options = {
             function startTimer() {
                 Notiflix.Notify.info('Timer Started');
                 refs.startButton.disabled = true;
+                refs.input.disabled = true;
                 const timerId = setInterval(() => {
                     const timer = convertMs(
                       selectedDates[0] - new Date()
@@ -39,6 +41,7 @@ const options = {
                         clearInterval(timerId);
                         refs.startButton.disabled = false;
                         Notiflix.Notify.success('Timer Ends');
+                        refs.input.disabled = false;
                     }
                 }, 1000);
                 

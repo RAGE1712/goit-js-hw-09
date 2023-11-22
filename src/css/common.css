@@ -16,6 +16,14 @@ img {
   display: block;
   max-width: 100%;
 }
+
+input {
+  font-size: 15px;
+}
+
+button {
+  font-size: 15px;
+}
 .value {
   font-size: 25px;
   text-align: center;
