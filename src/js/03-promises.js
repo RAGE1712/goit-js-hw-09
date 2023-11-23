@@ -35,6 +35,7 @@ function onFormSubmit(event) {
   }
   position = 0;
   i = 0;  
+  refs.formElem.reset()
 }
 
 function createPromise(position, delay) {
